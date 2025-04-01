@@ -8,6 +8,7 @@ https://reactjs.org/docs/lists-and-keys.html
 */
 
 import { Pokemon } from "./components/Pokemon";
+import { Header } from "./components/Header";
 import pokemonData from "./data.json"
 /*Extra!
 Feel free to create more components, such as header/footer,
@@ -20,10 +21,10 @@ export const App = () => {
   console.log(pokemonList[0].types)
   return (
     <div className="App">
-
+      <Header />
       <div>
         {pokemonList.map((pokemon) => {
-          return <Pokemon key={pokemon.id} name={pokemon.name} types={pokemon.types} />
+          return <Pokemon key={pokemon.id} name={pokemon.name} types={pokemon.types} height={pokemon.height} weight={pokemon.weight} />
         })}
       </div>
     </div>

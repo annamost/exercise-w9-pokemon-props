@@ -7,14 +7,25 @@ with their types. Don't forget the key! Read more here:
 https://reactjs.org/docs/lists-and-keys.html
 */
 
+import { Pokemon } from "./components/Pokemon";
+import pokemonData from "./data.json"
 /*Extra!
 Feel free to create more components, such as header/footer,
 or why not include some more data from the array? */
 
 export const App = () => {
+  // first I need to fetch the data from the json file... 
+  const pokemonList = pokemonData.pokemons;
+  // console.log(pokemonList)
+  console.log(pokemonList[0].types)
   return (
     <div className="App">
-      <p>Pokemon goes here</p>
+
+      <div>
+        {pokemonList.map((pokemon) => {
+          return <Pokemon key={pokemon.id} name={pokemon.name} types={pokemon.types} />
+        })}
+      </div>
     </div>
   );
 };
